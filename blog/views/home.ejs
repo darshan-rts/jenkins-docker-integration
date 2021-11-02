@@ -1,0 +1,21 @@
+
+ <%- include( "partials/header" ) -%> 
+
+
+<h1>Home</h1>
+
+<p id="start"><%= startingdata%></p> 
+
+<% for(var i=0;i<postdatas.length;i++) {%>
+
+    <% var postrank1="/post/"+postdatas[i].title %>
+
+   <h1><%= postdatas[i].title %></h1>
+    <%var substr= postdatas[i].content.substring(0,100)+" ..."; %>
+    <p><%=substr%><span ><a href="<%=postrank1 %>" >Read more </a></span> </p> 
+    
+
+<%} %>
+
+
+<%- include( "partials/footer" ) -%> 
