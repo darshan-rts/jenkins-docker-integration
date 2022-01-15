@@ -9,8 +9,10 @@ pipeline{
         stage('Build'){
             steps
             {
-                echo "$DEFAULT_IP"
-                sh "npm install"
+                
+                sh """
+                echo "$DEFAULT_IP"                
+                """
             }
         }
 
