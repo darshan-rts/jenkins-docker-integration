@@ -10,7 +10,7 @@ pipeline{
             steps
             {
                 
-                sh """
+                bash """
                 npm install;
                 tar -cvf blog_app.tar.gz node_modules app.js package.json Procfile public views
                 # /usrdata/apps/appserver/deployment                                
