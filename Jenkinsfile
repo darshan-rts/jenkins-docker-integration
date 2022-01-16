@@ -13,9 +13,7 @@ pipeline{
                 sh '''
                 echo $WORKSPACE;
                 npm install;
-                # tar -cvf blog_app.tar.gz node_modules app.js package.json Procfile public views
-                # /usrdata/apps/appserver/deployment                                
-                               
+                tar -cvf blog_app.tar.gz node_modules app.js package.json Procfile public views;                               
                 '''
             }
         }
@@ -31,6 +29,9 @@ pipeline{
             steps
             {
                 echo 'Deploy the code'
+                sh '''
+                scp blog_app.tar.gz jenkins@$DEFAULT_IP:/usrdata/apps/appserver/deployment
+                '''
             }
         }
     }
