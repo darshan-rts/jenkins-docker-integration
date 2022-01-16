@@ -30,7 +30,10 @@ pipeline{
             {
                 echo 'Deploy the code'
                 sh '''
-                scp blog_app.tar.gz jenkins@$DEFAULT_IP:/usrdata/apps/appserver/deployment
+                scp blog_app.tar.gz jenkins@$DEFAULT_IP:/usrdata/apps/appserver/deployment;
+                ssh jenkins@$DEFAULT_IP "
+                tar -xvf /usrdata/apps/appserver/deployment/blog_app.tar.gz -C /usrdata/apps/appserver/node
+                "                
                 '''
             }
         }
